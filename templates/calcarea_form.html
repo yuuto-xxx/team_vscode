@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>円面積計算</title>
+</head>
+<body>
+    <h2>円面積計算</h2>
+    <p>数値を入力し、計算を押下してください</p>
+    {% if result != None and result != "" %}
+        <p>面積：{{result}}</p>
+    {% elif result == "error" %}
+        <p style="color: #f00;">有効な数値を入力してください。</p>
+    {% endif %}
+    <form action="{{url_for('calc_result')}}" method="get">
+        <label>
+            半径：<input type="number" name="radius" id="radius" required>
+        </label>
+        <input type="submit" value="計算">
+    </form>
+</body>
+</html>
